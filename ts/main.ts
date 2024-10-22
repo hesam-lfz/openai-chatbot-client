@@ -1,39 +1,15 @@
-// HTTP Request - Fetch - LFZ Proxy Cors Server:
-async function fetchDataWithFetch(): Promise<void> {
-  // const targetUrl = encodeURIComponent('http://api.no-cors.com/data?foo=bar');
-  const targetUrl = encodeURIComponent(
-    'https://www.googleapis.com/books/v1/volumes?q=time&printType=magazines',
-  );
-  try {
-    const response = await fetch(
-      'https://cors.learningfuze.com/?url=' + targetUrl,
-    );
-    if (!response.ok) {
-      throw new Error(`HTTP error! Status: ${response.status}`);
-    }
-    const data = await response.json();
-    console.log(data);
-  } catch (error) {
-    console.log(error);
-  }
-}
+import OpenAI from 'openai';
 
-// HTTP Request - Ajax - LFZ Proxy Cors Server:
-function fetchDataWithAjax(): void {
-  // const targetUrl = encodeURIComponent('http://api.no-cors.com/data?foo=bar');
-  const targetUrl = encodeURIComponent(
-    'https://www.googleapis.com/books/v1/volumes?q=time&printType=magazines',
-  );
-  const xhr = new XMLHttpRequest();
-  xhr.open('GET', 'https://cors.learningfuze.com/?url=' + targetUrl);
-  xhr.setRequestHeader('token', 'abc123');
-  xhr.responseType = 'json';
-  xhr.addEventListener('load', function () {
-    const data = xhr.response;
-    console.log(data);
+const client = new OpenAI({
+  apiKey: process.env.OPENAI_API_KEY, // This is the default and can be omitted
+});
+
+async function main(): Promise<void> {
+  const chatCompletion = await client.chat.completions.create({
+    messages: [{ role: 'user', content: 'Say this is a test' }],
+    model: 'gpt-3.5-turbo',
   });
-  xhr.send();
+  console.log(chatCompletion);
 }
 
-fetchDataWithFetch();
-fetchDataWithAjax();
+main();
