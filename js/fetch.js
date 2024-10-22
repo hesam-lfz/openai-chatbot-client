@@ -1,5 +1,6 @@
+'use strict';
 // HTTP Request - Fetch - LFZ Proxy Cors Server:
-async function fetchData(): Promise<void> {
+async function fetchData() {
   // const targetUrl = encodeURIComponent('http://api.no-cors.com/data?foo=bar');
   const targetUrl = encodeURIComponent(
     'https://www.googleapis.com/books/v1/volumes?q=time&printType=magazines',
@@ -17,5 +18,4 @@ async function fetchData(): Promise<void> {
     console.log(error);
   }
 }
-
 fetchData();
