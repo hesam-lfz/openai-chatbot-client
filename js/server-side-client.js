@@ -2,7 +2,7 @@ import OpenAI from 'openai';
 const client = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY, // This is the default and can be omitted
 });
-async function main() {
+async function converse() {
   const chatCompletion = await client.chat.completions.create({
     messages: [
       {
@@ -15,4 +15,4 @@ async function main() {
   });
   console.log(chatCompletion.choices[0].message);
 }
-main();
+converse();
