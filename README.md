@@ -1,3 +1,3 @@
-# front-end-project
+# openai-chatbot
 
-A dynamic HTML, CSS, and TypeScript solo project.
+An OpenAI chatbot client

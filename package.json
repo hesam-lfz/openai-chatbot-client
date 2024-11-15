@@ -1,8 +1,8 @@
 {
-  "name": "front-end-project",
+  "name": "openai-chatbot",
   "version": "1.0.0",
   "private": true,
-  "description": "A dynamic HTML, CSS, and TypeScript solo project.",
+  "description": "An OpenAI chatbot client.",
   "main": "index.js",
   "scripts": {
     "prepare": "husky install"
